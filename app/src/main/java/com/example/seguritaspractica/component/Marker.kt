@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.example.seguritaspractica.domain.Punto
 
 // TODO cambio id de puntos despues de eliminación, pero luego cuando recupera si que está bien
-
+// TODO solo punto seleccionado puede arrastrar
 @Composable
 fun Marker(
     punto: Punto,
@@ -39,7 +39,7 @@ fun Marker(
             .size(26.dp)
             .background(
                 color = when {
-                    isDragging -> Color.Green
+                   // isDragging -> Color.Green
                     isSelected -> Color.Cyan
                     else -> Color.White
                 },
