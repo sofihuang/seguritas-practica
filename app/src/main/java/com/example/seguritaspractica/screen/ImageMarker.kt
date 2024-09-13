@@ -45,7 +45,7 @@ fun ImageMarkerScreen(navController: NavController) {
 
     val escenario = Escenario(
         id = 1,
-        imageUrl = "https://fancyhouse-design.com/wp-content/uploads/2024/05/Weather-resistant-materials-for-outdoor-spaces-ensure-longevity-and-minimal-maintenance.jpg",
+        imageUrl = "https://i.pinimg.com/564x/3e/4f/d7/3e4fd791f54c8bee5565036c2094309d.jpg",
         puntos = puntos.toMutableList()
     )
 
