@@ -29,48 +29,41 @@ fun Marker(
     onDragEnded: () -> Unit
 ) {
     var offset by remember { mutableStateOf(punto.coordenada) }
-    var isDragging by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
             .offset(offset.x.dp, offset.y.dp)
             .size(26.dp)
             .background(
-                color = when {
-                   // isDragging -> Color.Green
-                    isSelected -> Color.Cyan
-                    else -> Color.White
-                },
+                color = if (isSelected) Color.Cyan else Color.White,
                 shape = RoundedCornerShape(8.dp)
             )
             .border(2.dp, Color.Black, shape = RoundedCornerShape(8.dp))
             .pointerInput(Unit) {
-                detectTapGestures(
-                    onTap = {
-                        onPuntoSelected()
-                    }
-                )
+                detectTapGestures(onTap = {
+                    onPuntoSelected()
+                })
             }
-            .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        onDragStarted()
-                    },
-                    onDragEnd = {
-                        isDragging = false
-                        onDragEnded()
-                        onPuntoUpdated(punto.copy(coordenada = offset))
-                    },
-                    onDrag = { change, dragAmount ->
-                        change.consume()
-                        isDragging = true
-                        val newOffset = Offset(
-                            x = (offset.x + dragAmount.x).coerceIn(0f, 300f - 26f),
-                            y = (offset.y + dragAmount.y).coerceIn(0f, 300f - 26f)
-                        )
-                        offset = newOffset
-                    }
-                )
+            .pointerInput(isSelected) {
+                if (isSelected) {
+                    detectDragGestures(
+                        onDragStart = {
+                            onDragStarted()
+                        },
+                        onDragEnd = {
+                            onDragEnded()
+                            onPuntoUpdated(punto.copy(coordenada = offset))
+                        },
+                        onDrag = { change, dragAmount ->
+                            change.consume()
+                            val newOffset = Offset(
+                                x = (offset.x + dragAmount.x).coerceIn(0f, 300f - 26f),
+                                y = (offset.y + dragAmount.y).coerceIn(0f, 300f - 26f)
+                            )
+                            offset = newOffset
+                        }
+                    )
+                }
             }
     ) {
         Text(
