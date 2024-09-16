@@ -24,7 +24,6 @@ fun Marker(
     punto: Punto,
     isSelected: Boolean,
     onPuntoUpdated: (Punto) -> Unit,
-    onPuntoSelected: () -> Unit,
     onDragStarted: () -> Unit,
     onDragEnded: () -> Unit
 ) {
@@ -39,11 +38,6 @@ fun Marker(
                 shape = RoundedCornerShape(8.dp)
             )
             .border(2.dp, Color.Black, shape = RoundedCornerShape(8.dp))
-            .pointerInput(Unit) {
-                detectTapGestures(onTap = {
-                    onPuntoSelected()
-                })
-            }
             .pointerInput(isSelected) {
                 if (isSelected) {
                     detectDragGestures(

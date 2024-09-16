@@ -41,7 +41,6 @@ import com.google.gson.Gson
 fun ImageMarkerScreen(navController: NavController) {
     var puntos by remember { mutableStateOf(listOf<Punto>()) }
     var selectedId by remember { mutableStateOf<Int?>(null) }
-    var isDragging by remember { mutableStateOf(false) }
     var idCounter by remember { mutableStateOf(1) }
 
     val escenario = Escenario(
@@ -55,52 +54,6 @@ fun ImageMarkerScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Box(
-            modifier = Modifier
-                .size(300.dp)
-                .background(Color.LightGray)
-        ) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(escenario.imageUrl)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize()
-            )
-
-            puntos.filter { it.id != selectedId }.forEach { punto ->
-                key(punto.id) {
-                    Marker(
-                        punto = punto,
-                        isSelected = false,
-                        onPuntoUpdated = { updatedPunto ->
-                            puntos = puntos.map { if (it.id == updatedPunto.id) updatedPunto else it }
-                        },
-                        onPuntoSelected = { selectedId = punto.id },
-                        onDragStarted = {},
-                        onDragEnded = {}
-                    )
-                }
-            }
-
-            puntos.find { it.id == selectedId }?.let { selectedPunto ->
-                key(selectedPunto.id) {
-                    Marker(
-                        punto = selectedPunto,
-                        isSelected = true,
-                        onPuntoUpdated = { updatedPunto ->
-                            puntos = puntos.map { if (it.id == updatedPunto.id) updatedPunto else it }
-                        },
-                        onPuntoSelected = {},
-                        onDragStarted = { isDragging = true },
-                        onDragEnded = { isDragging = false }
-                    )
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Row {
             Button(onClick = {
@@ -127,8 +80,53 @@ fun ImageMarkerScreen(navController: NavController) {
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-        Column(
+
+        Box(
+            modifier = Modifier
+                .size(300.dp)
+                .background(Color.LightGray)
         ) {
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(escenario.imageUrl)
+                    .crossfade(true)
+                    .build(),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize()
+            )
+
+            puntos.filter { it.id != selectedId }.forEach { punto ->
+                key(punto.id) {
+                    Marker(
+                        punto = punto,
+                        isSelected = false,
+                        onPuntoUpdated = { updatedPunto ->
+                            puntos = puntos.map { if (it.id == updatedPunto.id) updatedPunto else it }
+                        },
+                        onDragStarted = {},
+                        onDragEnded = {}
+                    )
+                }
+            }
+
+            puntos.find { it.id == selectedId }?.let { selectedPunto ->
+                key(selectedPunto.id) {
+                    Marker(
+                        punto = selectedPunto,
+                        isSelected = true,
+                        onPuntoUpdated = { updatedPunto ->
+                            puntos = puntos.map { if (it.id == updatedPunto.id) updatedPunto else it }
+                        },
+                        onDragStarted = {},
+                        onDragEnded = {}
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column {
             puntos.forEach { punto ->
                 Button(
                     onClick = { selectedId = punto.id },
@@ -149,3 +147,4 @@ fun ImageMarkerScreen(navController: NavController) {
         }
     }
 }
+
