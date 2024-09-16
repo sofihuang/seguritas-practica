@@ -1,9 +1,8 @@
-package com.example.seguritaspractica.component
+package com.example.seguritaspractica.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
@@ -17,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.seguritaspractica.domain.Punto
+import com.example.seguritaspractica.domain.model.Punto
 
 @Composable
 fun Marker(

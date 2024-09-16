@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.ui.theme
+package com.example.seguritaspractica.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

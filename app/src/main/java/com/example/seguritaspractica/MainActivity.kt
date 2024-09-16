@@ -13,12 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.seguritaspractica.screen.DragDropScreen
-import com.example.seguritaspractica.screen.ImageDetailScreen
-import com.example.seguritaspractica.screen.ImageMarkerScreen
-import com.example.seguritaspractica.screen.PdfScreen
-import com.example.seguritaspractica.ui.theme.SeguritasPracticaTheme
-import com.example.seguritaspractica.viewmodel.ImageViewModel
+import com.example.seguritaspractica.presentation.screen.DragDropScreen
+import com.example.seguritaspractica.presentation.screen.ImageDetailScreen
+import com.example.seguritaspractica.presentation.screen.ImageMarkerScreen
+import com.example.seguritaspractica.presentation.screen.PdfScreen
+import com.example.seguritaspractica.presentation.theme.SeguritasPracticaTheme
+import com.example.seguritaspractica.presentation.viewmodel.ImageViewModel
 import com.google.gson.Gson
 import java.io.InputStream
 

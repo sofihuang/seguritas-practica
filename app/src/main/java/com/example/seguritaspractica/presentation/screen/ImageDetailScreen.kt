@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.screen
+package com.example.seguritaspractica.presentation.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.seguritaspractica.domain.Escenario
+import com.example.seguritaspractica.domain.model.Escenario
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

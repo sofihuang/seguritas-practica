@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.ui.theme
+package com.example.seguritaspractica.presentation.theme
 
 import android.app.Activity
 import android.os.Build

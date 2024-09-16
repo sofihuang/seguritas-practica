@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.screen
+package com.example.seguritaspractica.presentation.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button

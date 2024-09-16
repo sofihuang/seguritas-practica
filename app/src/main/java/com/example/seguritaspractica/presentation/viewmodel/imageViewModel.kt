@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.viewmodel
+package com.example.seguritaspractica.presentation.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

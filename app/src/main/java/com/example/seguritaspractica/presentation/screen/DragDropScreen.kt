@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.screen
+package com.example.seguritaspractica.presentation.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +27,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.example.seguritaspractica.ui.theme.SeguritasPracticaTheme
+import com.example.seguritaspractica.presentation.theme.SeguritasPracticaTheme
 import com.example.seguritaspractica.utils.dashedBorder
 import com.example.seguritaspractica.utils.isIntersecting
 import kotlin.math.roundToInt

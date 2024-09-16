@@ -1,4 +1,4 @@
-package com.example.seguritaspractica.domain
+package com.example.seguritaspractica.domain.model
 
 import androidx.compose.ui.geometry.Offset
 
